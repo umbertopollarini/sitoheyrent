@@ -562,7 +562,7 @@
             </div>
         </div>
 
-        <button class="whatsapp-send-btn" onclick="sendWhatsApp()"><strong>Conferma su
+        <button class="whatsapp-send-btn" onclick="sendWhatsApp(); gtag_report_conversion();"><strong>Conferma su
                 whatsapp!</strong></button>
         <!-- <small style="display:block; margin-top:5px; color:#555;">
             Il messaggio avrà tutti i dati, ti basterà inviare il messaggio
@@ -571,6 +571,20 @@
     </div>
 
     <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17203825536/SW_uCKXW2vAbEICXtotA',
+                'value': 60.0,
+                'currency': 'EUR',
+                'event_callback': callback
+            });
+            return false;
+        }
 
         // Aggiungi queste funzioni per il calcolo del prezzo
         /*function calculateDays() {
