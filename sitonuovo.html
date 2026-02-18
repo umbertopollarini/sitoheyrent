@@ -685,6 +685,107 @@
             margin-top: 12px;
         }
 
+        /* ── Booking tabs ── */
+        .booking-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .booking-tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            border-radius: 9px;
+            border: none;
+            background: transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .booking-tab .material-icons {
+            font-size: 16px;
+        }
+
+        .booking-tab.active {
+            background: var(--white);
+            color: var(--gray-800);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-tab.tab-wa.active {
+            color: #25d366;
+        }
+
+        .booking-tab.tab-email.active {
+            color: var(--blue);
+        }
+
+        .booking-panel {
+            display: none;
+        }
+
+        .booking-panel.active {
+            display: block;
+        }
+
+        .btn-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            border-radius: 14px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-email:hover {
+            background: var(--blue-dark, #003d80);
+            transform: translateY(-1px);
+        }
+
+        .btn-email .material-icons {
+            font-size: 20px;
+        }
+
+        .email-success {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #f0fdf4;
+            border: 1.5px solid #bbf7d0;
+            border-radius: 12px;
+            color: #166534;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .email-success .material-icons {
+            font-size: 32px;
+            color: #22c55e;
+            display: block;
+            margin-bottom: 8px;
+        }
+
         /* ═══════════════════════════════════════
            TRUST BAR
            ═══════════════════════════════════════ */
@@ -1797,6 +1898,16 @@
         /* ═══════════════════════════════════════
            ANIMATIONS
            ═══════════════════════════════════════ */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -1890,83 +2001,187 @@
                 <!-- Booking Card -->
                 <div class="booking-card" id="booking-card">
                     <h2>Richiedi preventivo</h2>
-                    <p class="booking-sub">Ti rispondiamo su WhatsApp in pochi minuti</p>
 
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="pickup-date">Data ritiro</label>
-                            <input type="date" id="pickup-date" required>
-                        </div>
-                        <div class="field">
-                            <label for="pickup-time">Ora ritiro</label>
-                            <input type="time" id="pickup-time" required>
-                        </div>
+                    <!-- Tab switcher -->
+                    <div class="booking-tabs">
+                        <button class="booking-tab tab-wa active" onclick="switchBookingTab('wa')">
+                            <span class="material-icons">chat</span> WhatsApp
+                        </button>
+                        <button class="booking-tab tab-email" onclick="switchBookingTab('email')">
+                            <span class="material-icons">mail</span> Lascia i dati
+                        </button>
                     </div>
 
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="dropoff-date">Data rilascio</label>
-                            <input type="date" id="dropoff-date" required>
-                        </div>
-                        <div class="field">
-                            <label for="dropoff-time">Ora rilascio</label>
-                            <input type="time" id="dropoff-time" required>
-                        </div>
-                    </div>
+                    <!-- ── Panel WhatsApp ── -->
+                    <div class="booking-panel active" id="panel-wa">
+                        <p class="booking-sub">Ti rispondiamo su WhatsApp in pochi minuti</p>
 
-                    <div class="field">
-                        <label for="van-type">Tipologia furgone</label>
-                        <select id="van-type" required>
-                            <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
-                            <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
-                        </select>
-                    </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="pickup-date">Data ritiro</label>
+                                <input type="date" id="pickup-date" required>
+                            </div>
+                            <div class="field">
+                                <label for="pickup-time">Ora ritiro</label>
+                                <input type="time" id="pickup-time" required>
+                            </div>
+                        </div>
 
-                    <div class="field-row">
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="dropoff-date">Data rilascio</label>
+                                <input type="date" id="dropoff-date" required>
+                            </div>
+                            <div class="field">
+                                <label for="dropoff-time">Ora rilascio</label>
+                                <input type="time" id="dropoff-time" required>
+                            </div>
+                        </div>
+
                         <div class="field">
-                            <label for="piano-select">Piano attrezzatura</label>
-                            <select id="piano-select" required>
-                                <option value="Piano Base" selected>Base</option>
-                                <option value="Piano Trasloco +">Trasloco +</option>
-                                <option value="Kit Moto">Kit Moto</option>
+                            <label for="van-type">Tipologia furgone</label>
+                            <select id="van-type" required>
+                                <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
+                                <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
                             </select>
                         </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="piano-select">Piano attrezzatura</label>
+                                <select id="piano-select" required>
+                                    <option value="Piano Base" selected>Base</option>
+                                    <option value="Piano Trasloco +">Trasloco +</option>
+                                    <option value="Kit Moto">Kit Moto</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="km-select">Km previsti</label>
+                                <select id="km-select" required>
+                                    <option value="100km" selected>100 km</option>
+                                    <option value="150km">150 km</option>
+                                    <option value="300km">300 km</option>
+                                    <option value="500km">500 km</option>
+                                    <option value="700km">700 km</option>
+                                    <option value="1000km">1000 km</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="included-strip">
+                            <h4>Incluso nel prezzo</h4>
+                            <div class="included-grid">
+                                <span><span class="material-icons">check_circle</span> Furto/Incendio</span>
+                                <span><span class="material-icons">check_circle</span> Polizza Cristalli</span>
+                                <span><span class="material-icons">check_circle</span> Atti Vandalici</span>
+                                <span><span class="material-icons">check_circle</span> Eventi Naturali</span>
+                                <span><span class="material-icons">check_circle</span> Soccorso Stradale</span>
+                                <span><span class="material-icons">check_circle</span> Cinghie/Corde Elas.</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-whatsapp" onclick="sendWhatsApp(); gtag_report_conversion();">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                <path
+                                    d="M12 0C5.373 0 0 5.373 0 12c0 2.127.555 4.126 1.528 5.861L.06 23.487l5.753-1.508A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.956 0-3.83-.527-5.47-1.524l-.393-.233-3.412.894.91-3.322-.256-.407A9.78 9.78 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z" />
+                            </svg>
+                            Conferma su WhatsApp!
+                        </button>
+                        <p class="booking-hours">Ti invieremo il preventivo su WhatsApp</p>
+                    </div>
+
+                    <!-- ── Panel Email / Richiama ── -->
+                    <div class="booking-panel" id="panel-email">
+                        <p class="booking-sub">Riceverai il preventivo in pochi minuti</p>
+
                         <div class="field">
-                            <label for="km-select">Km previsti</label>
-                            <select id="km-select" required>
-                                <option value="100km" selected>100 km</option>
-                                <option value="150km">150 km</option>
-                                <option value="300km">300 km</option>
-                                <option value="500km">500 km</option>
-                                <option value="700km">700 km</option>
-                                <option value="1000km">1000 km</option>
+                            <label for="e-name">Email</label>
+                            <input type="email" id="e-name" placeholder="mario@esempio.it">
+                        </div>
+
+                        <div class="field">
+                            <label for="e-phone">Numero di telefono *</label>
+                            <input type="tel" id="e-phone" placeholder="+39 333 123 4567" required>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="e-pickup-date">Data ritiro</label>
+                                <input type="date" id="e-pickup-date">
+                            </div>
+                            <div class="field">
+                                <label for="e-pickup-time">Ora ritiro</label>
+                                <input type="time" id="e-pickup-time">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="e-dropoff-date">Data rilascio</label>
+                                <input type="date" id="e-dropoff-date">
+                            </div>
+                            <div class="field">
+                                <label for="e-dropoff-time">Ora rilascio</label>
+                                <input type="time" id="e-dropoff-time">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="e-van-type">Tipologia furgone</label>
+                            <select id="e-van-type">
+                                <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
+                                <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
                             </select>
                         </div>
-                    </div>
 
-                    <div class="included-strip">
-                        <h4>Incluso nel prezzo</h4>
-                        <div class="included-grid">
-                            <span><span class="material-icons">check_circle</span> Furto/Incendio</span>
-                            <span><span class="material-icons">check_circle</span> Polizza Cristalli</span>
-                            <span><span class="material-icons">check_circle</span> Atti Vandalici</span>
-                            <span><span class="material-icons">check_circle</span> Soccorso Stradale</span>
-                            <span><span class="material-icons">check_circle</span> Cinghie Ancoraggio</span>
-                            <span><span class="material-icons">check_circle</span> Corde Elastiche</span>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="e-piano-select">Piano attrezzatura</label>
+                                <select id="e-piano-select">
+                                    <option value="Piano Base" selected>Base</option>
+                                    <option value="Piano Trasloco +">Trasloco +</option>
+                                    <option value="Kit Moto">Kit Moto</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="e-km-select">Km previsti</label>
+                                <select id="e-km-select">
+                                    <option value="100km" selected>100 km</option>
+                                    <option value="150km">150 km</option>
+                                    <option value="300km">300 km</option>
+                                    <option value="500km">500 km</option>
+                                    <option value="700km">700 km</option>
+                                    <option value="1000km">1000 km</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="included-strip">
+                            <h4>Incluso nel prezzo</h4>
+                            <div class="included-grid">
+                                <span><span class="material-icons">check_circle</span> Furto/Incendio</span>
+                                <span><span class="material-icons">check_circle</span> Polizza Cristalli</span>
+                                <span><span class="material-icons">check_circle</span> Atti Vandalici</span>
+                                <span><span class="material-icons">check_circle</span> Eventi Naturali</span>
+                                <span><span class="material-icons">check_circle</span> Soccorso Stradale</span>
+                                <span><span class="material-icons">check_circle</span> Cinghie/Corde Elas.</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-email" onclick="sendEmail()">
+                            <span class="material-icons">send</span>
+                            Invia richiesta
+                        </button>
+
+                        <div class="email-success" id="email-success">
+                            <span class="material-icons">check_circle</span>
+                            Richiesta inviata! Ti ricontatteremo al pi&ugrave; presto.
+                        </div>
+
+                        <p class="booking-hours">Ti ricontatteremo entro pochi minuti</p>
                     </div>
-
-                    <button class="btn-whatsapp" onclick="sendWhatsApp(); gtag_report_conversion();">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                            <path
-                                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.555 4.126 1.528 5.861L.06 23.487l5.753-1.508A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.956 0-3.83-.527-5.47-1.524l-.393-.233-3.412.894.91-3.322-.256-.407A9.78 9.78 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z" />
-                        </svg>
-                        Conferma su WhatsApp!
-                    </button>
-
-                    <p class="booking-hours">Ti invieremo il preventivo su WhatsApp</p>
                 </div>
             </div>
         </div>
@@ -2554,12 +2769,12 @@
             <div class="included-strip">
                 <h4>Incluso nel prezzo</h4>
                 <div class="included-grid">
-                    <span><span class="material-icons">check_circle</span> RCA Premium</span>
-                    <span><span class="material-icons">check_circle</span> Furto e Incendio</span>
+                    <span><span class="material-icons">check_circle</span> Furto/Incendio</span>
                     <span><span class="material-icons">check_circle</span> Polizza Cristalli</span>
+                    <span><span class="material-icons">check_circle</span> Atti Vandalici</span>
+                    <span><span class="material-icons">check_circle</span> Eventi Naturali</span>
                     <span><span class="material-icons">check_circle</span> Soccorso Stradale</span>
-                    <span><span class="material-icons">check_circle</span> Cinghie Ancoraggio</span>
-                    <span><span class="material-icons">check_circle</span> Corde Elastiche</span>
+                    <span><span class="material-icons">check_circle</span> Cinghie/Corde Elas.</span>
                 </div>
             </div>
 
@@ -2596,17 +2811,92 @@
         }
 
         // Set default dates (desktop + mobile)
+        // Tab switcher
+        function switchBookingTab(tab) {
+            document.querySelectorAll('.booking-tab').forEach(function (b) { b.classList.remove('active'); });
+            document.querySelectorAll('.booking-panel').forEach(function (p) { p.classList.remove('active'); });
+            document.querySelector('.tab-' + tab).classList.add('active');
+            document.getElementById('panel-' + tab).classList.add('active');
+        }
+
+        // Send via email (Web3Forms)
+        function sendEmail() {
+            var phone = document.getElementById('e-phone').value.trim();
+            if (!phone) { alert('Inserisci il tuo numero di telefono.'); return; }
+
+            var name = document.getElementById('e-name').value.trim() || 'Non specificata';
+            var vanType = document.getElementById('e-van-type').value;
+            var pickupD = document.getElementById('e-pickup-date').value || 'Non specificata';
+            var pickupT = document.getElementById('e-pickup-time').value || 'Non specificato';
+            var dropoffD = document.getElementById('e-dropoff-date').value || 'Non specificata';
+            var dropoffT = document.getElementById('e-dropoff-time').value || 'Non specificato';
+            var piano = document.getElementById('e-piano-select').value;
+            var km = document.getElementById('e-km-select').value;
+
+            var body = [
+                '🚐 NUOVA RICHIESTA PREVENTIVO — HeyRent!',
+                '',
+                '📧 Email: ' + name,
+                '📞 Telefono: ' + phone,
+                '',
+                '🚛 Furgone: ' + vanType,
+                '📅 Ritiro: ' + pickupD + ' alle ' + pickupT,
+                '📅 Rilascio: ' + dropoffD + ' alle ' + dropoffT,
+                '🧰 Attrezzatura: ' + piano,
+                '🛣️ Km previsti: ' + km,
+            ].join('\n');
+
+            var btn = document.querySelector('.btn-email');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-icons" style="animation:spin 1s linear infinite">sync</span> Invio in corso...';
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: 'fb225870-e200-487c-9a24-e63bd3fa9ad0',
+                    subject: '🚐 Preventivo HeyRent! — ' + name + ' (' + phone + ')',
+                    from_name: 'HeyRent! Sito Web',
+                    to: 'nfurgoni@gmail.com',
+                    message: body
+                })
+            })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.success) {
+                        document.getElementById('email-success').style.display = 'block';
+                        btn.style.display = 'none';
+                        if (window.gtag_report_conversion) gtag_report_conversion();
+                    } else {
+                        alert('Errore nell\'invio. Riprova o contattaci su WhatsApp.');
+                        btn.disabled = false;
+                        btn.innerHTML = '<span class="material-icons">send</span> Invia richiesta';
+                    }
+                })
+                .catch(function () {
+                    alert('Errore di rete. Riprova o contattaci su WhatsApp.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<span class="material-icons">send</span> Invia richiesta';
+                });
+        }
+
         function setDefaultDates() {
             const now = new Date();
             const pickup = new Date(now);
             pickup.setDate(now.getDate() + 1);
             const dateStr = pickup.toISOString().split('T')[0];
 
-            // Desktop
+            // Desktop WhatsApp
             document.getElementById('pickup-date').value = dateStr;
             document.getElementById('pickup-time').value = '08:00';
             document.getElementById('dropoff-date').value = '';
             document.getElementById('dropoff-time').value = '';
+
+            // Desktop Email
+            document.getElementById('e-pickup-date').value = dateStr;
+            document.getElementById('e-pickup-time').value = '08:00';
+            document.getElementById('e-dropoff-date').value = '';
+            document.getElementById('e-dropoff-time').value = '';
 
             // Mobile
             document.getElementById('m-pickup-date').value = dateStr;
@@ -2643,6 +2933,11 @@
         // Auto-set dropoff time to 20:00 when dropoff date is selected (mobile)
         document.getElementById('m-dropoff-date').addEventListener('change', function () {
             document.getElementById('m-dropoff-time').value = '20:00';
+        });
+
+        // Auto-set dropoff time to 20:00 when dropoff date is selected (email panel)
+        document.getElementById('e-dropoff-date').addEventListener('change', function () {
+            document.getElementById('e-dropoff-time').value = '20:00';
         });
 
         // Send WhatsApp
