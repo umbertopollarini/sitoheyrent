@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Privacy Policy di HeyRent! — Informativa sul trattamento dei dati personali ai sensi del GDPR (Reg. UE 2016/679).">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.heyrent.it/privacy-policy">
+    <title>Privacy Policy — HeyRent!</title>
+    <link rel="icon" href="social.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #0056b3;
+            --blue-dark: #003d80;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --radius: 16px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .logo-img { height: 36px; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--blue);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1.5px solid var(--blue);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .back-link .material-icons { font-size: 18px; }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── HERO ── */
+        .pp-hero {
+            background: linear-gradient(135deg, var(--blue-dark, #003d80) 0%, var(--blue) 100%);
+            color: #fff;
+            padding: 64px 0 56px;
+            text-align: center;
+        }
+
+        .pp-hero-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .pp-hero-icon .material-icons { font-size: 34px; color: var(--gold); }
+
+        .pp-hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .pp-hero p {
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        /* ── NOTICE BOX ── */
+        .pp-notice {
+            background: #e8f4ff;
+            border: 1.5px solid #b3d4f5;
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 40px 0 0;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .pp-notice .material-icons { color: var(--blue); font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+
+        .pp-notice p {
+            font-size: 0.9rem;
+            color: var(--blue-dark, #003d80);
+            line-height: 1.6;
+        }
+
+        .pp-notice strong { font-weight: 700; }
+
+        /* ── CONTENT ── */
+        .pp-content {
+            padding: 48px 0 80px;
+        }
+
+        .pp-section {
+            margin-bottom: 40px;
+        }
+
+        .pp-section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .pp-section-title .material-icons { font-size: 20px; }
+
+        .pp-section p,
+        .pp-section ul {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-bottom: 10px;
+        }
+
+        .pp-section ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .pp-section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .pp-section ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue);
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        .pp-section strong { color: var(--gray-800); font-weight: 600; }
+
+        .pp-highlight {
+            background: #f0fdf4;
+            border: 1.5px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 0.88rem;
+            color: #166534;
+            line-height: 1.6;
+        }
+
+        .pp-highlight .material-icons { font-size: 16px; vertical-align: middle; margin-right: 4px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--gray-800);
+            color: rgba(255,255,255,0.7);
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        footer a { color: var(--gold); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        footer p + p { margin-top: 6px; }
+
+        @media (max-width: 600px) {
+            .pp-hero h1 { font-size: 1.5rem; }
+            .pp-hero { padding: 48px 0 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <a href="/" aria-label="HeyRent! Home">
+                <img src="logo3.png" alt="HeyRent! — Noleggio Furgoni" class="logo-img">
+            </a>
+            <a href="/" class="back-link">
+                <span class="material-icons">arrow_back</span>
+                Torna al sito
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="pp-hero">
+        <div class="container">
+            <div class="pp-hero-icon"><span class="material-icons">shield</span></div>
+            <h1>Privacy Policy</h1>
+            <p>Informativa ai sensi del Regolamento UE 2016/679 (GDPR) &mdash; Ultimo aggiornamento: Febbraio 2025</p>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="pp-content">
+        <div class="container">
+
+            <div class="pp-notice">
+                <span class="material-icons">info</span>
+                <p><strong>In sintesi:</strong> HeyRent! raccoglie il minimo indispensabile per farti avere un preventivo su WhatsApp.
+                   Non vendiamo, non condividiamo e non cediamo i tuoi dati a nessun soggetto terzo, per nessun motivo.</p>
+            </div>
+
+            <!-- 1. Titolare -->
+            <div class="pp-section" style="margin-top: 40px;">
+                <div class="pp-section-title">
+                    <span class="material-icons">person</span>
+                    1. Titolare del trattamento
+                </div>
+                <p>
+                    Il titolare del trattamento dei dati personali è <strong>HeyRent!</strong>, con sede operativa nelle province di
+                    Modena e Reggio Emilia.
+                    Per qualsiasi richiesta relativa alla privacy puoi scriverci a:
+                    <strong><a href="mailto:info@heyrent.it" style="color: var(--blue);">info@heyrent.it</a></strong>
+                    oppure contattarci via WhatsApp al <strong>+39 351 644 2583</strong>.
+                </p>
+            </div>
+
+            <!-- 2. Dati raccolti -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">dataset</span>
+                    2. Quali dati raccogliamo
+                </div>
+                <p>Raccogliamo esclusivamente i dati che ci fornisci volontariamente tramite il form di prenotazione presente sul sito:</p>
+                <ul>
+                    <li>Date e orari di ritiro e rilascio del furgone</li>
+                    <li>Tipo di furgone e piano attrezzatura selezionati</li>
+                    <li>Chilometraggio previsto</li>
+                </ul>
+                <p>
+                    Questi dati vengono inviati direttamente a noi tramite WhatsApp. <strong>Non raccogliamo nome, cognome,
+                    email, numero di telefono o altri dati anagrafici</strong> attraverso il sito: ogni comunicazione avviene
+                    nella chat WhatsApp, dove si applicano le policy di Meta Platforms Ireland Ltd.
+                </p>
+            </div>
+
+            <!-- 3. Cookie -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">cookie</span>
+                    3. Cookie e strumenti di analisi
+                </div>
+                <p>Il sito utilizza due categorie di cookie:</p>
+                <ul>
+                    <li>
+                        <strong>Cookie tecnici</strong> — necessari al corretto funzionamento del sito (es. salvataggio del consenso cookie).
+                        Non richiedono il tuo consenso e non tracciano nessuna attività.
+                    </li>
+                    <li>
+                        <strong>Cookie di analisi (Google Ads)</strong> — vengono attivati <em>solo dopo il tuo consenso esplicito</em>
+                        e ci permettono di misurare quante persone visitano il sito e quali azioni compiono, in forma anonima e aggregata.
+                        Puoi rifiutare questi cookie in qualsiasi momento senza perdere alcuna funzionalità del sito.
+                    </li>
+                </ul>
+                <div class="pp-highlight">
+                    <span class="material-icons">verified</span>
+                    I dati raccolti da Google Ads vengono utilizzati esclusivamente per misurare l'efficacia delle nostre
+                    campagne pubblicitarie. Non li utilizziamo per profilazione, non li vendiamo e non li cediamo a nessun
+                    soggetto terzo.
+                </div>
+            </div>
+
+            <!-- 4. Finalità -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">flag</span>
+                    4. Finalit&agrave; del trattamento
+                </div>
+                <p>I dati del form di prenotazione vengono utilizzati <strong>esclusivamente</strong> per:</p>
+                <ul>
+                    <li>Elaborare e inviarti un preventivo personalizzato via WhatsApp</li>
+                    <li>Gestire la prenotazione del noleggio furgone</li>
+                </ul>
+                <p>Non utilizziamo i tuoi dati per attivit&agrave; di marketing, newsletter, profilazione o qualsiasi altro scopo
+                diverso da quello sopra indicato.</p>
+            </div>
+
+            <!-- 5. Condivisione -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">share</span>
+                    5. Condivisione dei dati con terze parti
+                </div>
+                <div class="pp-highlight" style="background:#fff7ed; border-color:#fed7aa; color:#9a3412;">
+                    <span class="material-icons" style="color:#ea580c;">block</span>
+                    <strong>I tuoi dati non vengono venduti, ceduti, affittati o condivisi con nessun soggetto terzo</strong>,
+                    per nessun motivo e in nessuna forma. Punto.
+                </div>
+                <p style="margin-top: 12px;">
+                    L'unica eccezione tecnica riguarda il servizio WhatsApp (gestito da Meta Platforms Ireland Ltd.) che utilizziamo
+                    come canale di comunicazione: in tal caso si applicano le condizioni d'uso e la privacy policy di WhatsApp,
+                    indipendenti da HeyRent!
+                </p>
+            </div>
+
+            <!-- 6. Conservazione -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">schedule</span>
+                    6. Conservazione dei dati
+                </div>
+                <p>
+                    I dati di prenotazione inviati via WhatsApp vengono conservati nella chat per il tempo strettamente necessario
+                    alla gestione del noleggio e, in ogni caso, non oltre 12 mesi dalla data del noleggio.
+                    Puoi richiedere in qualsiasi momento la cancellazione scrivendo a
+                    <a href="mailto:info@heyrent.it" style="color: var(--blue);">info@heyrent.it</a>.
+                </p>
+            </div>
+
+            <!-- 7. Diritti -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">manage_accounts</span>
+                    7. I tuoi diritti (GDPR)
+                </div>
+                <p>Ai sensi degli articoli 15&ndash;22 del GDPR hai diritto di:</p>
+                <ul>
+                    <li>Accedere ai tuoi dati personali in nostro possesso</li>
+                    <li>Richiederne la rettifica o la cancellazione</li>
+                    <li>Opporti al trattamento o richiederne la limitazione</li>
+                    <li>Ricevere i tuoi dati in formato portabile</li>
+                    <li>Revocare il consenso in qualsiasi momento (ove applicabile)</li>
+                    <li>Proporre reclamo al Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener" style="color: var(--blue);">www.garanteprivacy.it</a>)</li>
+                </ul>
+                <p>Per esercitare i tuoi diritti scrivici a <a href="mailto:info@heyrent.it" style="color: var(--blue);">info@heyrent.it</a>: risponderemo entro 30 giorni.</p>
+            </div>
+
+            <!-- 8. Modifiche -->
+            <div class="pp-section">
+                <div class="pp-section-title">
+                    <span class="material-icons">edit_note</span>
+                    8. Modifiche alla presente policy
+                </div>
+                <p>
+                    Ci riserviamo di aggiornare questa informativa in caso di modifiche normative o operative.
+                    La data di aggiornamento &egrave; sempre indicata in cima alla pagina.
+                    L'uso continuato del sito dopo la pubblicazione delle modifiche costituisce accettazione delle stesse.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p><strong style="color:#fff;">HeyRent!</strong> &mdash; Noleggio Furgoni Modena e Reggio Emilia</p>
+            <p><a href="mailto:info@heyrent.it">info@heyrent.it</a> &mdash; <a href="tel:+393516442583">+39 351 644 2583</a></p>
+            <p style="margin-top:12px;">&copy; 2025 HeyRent! &mdash; Tutti i diritti riservati &mdash; <a href="/privacy-policy">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
