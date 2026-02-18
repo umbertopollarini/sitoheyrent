@@ -1551,7 +1551,7 @@
             }
 
             .hero-phone-btn {
-                justify-content: center;
+                width: 100%;
             }
 
             /* Hide booking card in hero on mobile */
@@ -1566,6 +1566,14 @@
 
             .fleet-dims-body {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .fleet-dim-label[data-short]::before {
+                content: attr(data-short);
+            }
+
+            .fleet-dim-label[data-short] .dim-full {
+                display: none;
             }
 
             .fleet-diagram-wrap {
@@ -1607,11 +1615,27 @@
             }
 
             .trust-items {
-                gap: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                justify-items: stretch;
             }
 
             .trust-item {
-                font-size: 0.82rem;
+                flex-direction: column;
+                gap: 6px;
+                background: var(--white);
+                border: 1.5px solid var(--gray-200);
+                border-radius: 12px;
+                padding: 14px 10px;
+                text-align: center;
+                font-size: 0.78rem;
+                font-weight: 600;
+                justify-content: center;
+            }
+
+            .trust-item .material-icons {
+                font-size: 24px;
             }
 
             /* Mobile booking overlay */
@@ -1957,6 +1981,7 @@
                 <div class="trust-item"><span class="material-icons">local_shipping</span> Consegna a domicilio</div>
                 <div class="trust-item"><span class="material-icons">calendar_today</span> Noleggio domenicale</div>
                 <div class="trust-item"><span class="material-icons">payments</span> Prenota e paga in loco</div>
+                <div class="trust-item"><span class="material-icons">credit_card_off</span> No carte di credito</div>
             </div>
         </div>
     </div>
@@ -1974,7 +1999,7 @@
                 <!-- ── FURGONE GRANDE ── -->
                 <article class="fleet-card fade-up">
                     <div class="fleet-card-img">
-                        <span class="fleet-badge">Pi&ugrave; richiesto</span>
+                        <span class="fleet-badge">Voluminoso</span>
                         <img src="citronjumper.png"
                             alt="Noleggio furgone grande tipo Citro&euml;n Jumper a Modena e Reggio Emilia"
                             loading="lazy">
@@ -1996,38 +2021,46 @@
                             <div class="fleet-dims-col">
                                 <div class="fleet-dims-col-label">Vano di carico</div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-label" data-short="Lung."><span
+                                            class="dim-full">Lunghezza</span></span>
                                     <span class="fleet-dim-value highlight">3.705 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-label" data-short="Largh."><span
+                                            class="dim-full">Larghezza</span></span>
                                     <span class="fleet-dim-value highlight">1.870 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Altezza</span>
+                                    <span class="fleet-dim-label" data-short="Alt."><span
+                                            class="dim-full">Altezza</span></span>
                                     <span class="fleet-dim-value highlight">1.932 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Volume</span>
-                                    <span class="fleet-dim-value highlight">~14 m³</span>
+                                    <span class="fleet-dim-label" data-short="Port."><span
+                                            class="dim-full">Portata</span></span>
+                                    <span class="fleet-dim-value highlight">1.500 kg</span>
                                 </div>
                             </div>
                             <div class="fleet-dims-col">
                                 <div class="fleet-dims-col-label">Furgone totale</div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-label" data-short="Lung."><span
+                                            class="dim-full">Lunghezza</span></span>
                                     <span class="fleet-dim-value">5.998 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-label" data-short="Largh."><span
+                                            class="dim-full">Larghezza</span></span>
                                     <span class="fleet-dim-value">2.050 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Portata</span>
-                                    <span class="fleet-dim-value">1.500 kg</span>
+                                    <span class="fleet-dim-label" data-short="Alt."><span
+                                            class="dim-full">Altezza</span></span>
+                                    <span class="fleet-dim-value">2.534 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Posti</span>
+                                    <span class="fleet-dim-label" data-short="Posti"><span
+                                            class="dim-full">Posti</span></span>
                                     <span class="fleet-dim-value">3</span>
                                 </div>
                             </div>
@@ -2048,7 +2081,7 @@
                 <!-- ── FURGONE MEDIO ── -->
                 <article class="fleet-card fade-up">
                     <div class="fleet-card-img">
-                        <span class="fleet-badge new">Disponibile</span>
+                        <span class="fleet-badge new">Maneggevole</span>
                         <img src="talento.png" alt="Noleggio furgone medio tipo Fiat Talento a Modena e Reggio Emilia"
                             loading="lazy">
                     </div>
@@ -2071,38 +2104,46 @@
                             <div class="fleet-dims-col">
                                 <div class="fleet-dims-col-label">Vano di carico</div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-label" data-short="Lung."><span
+                                            class="dim-full">Lunghezza</span></span>
                                     <span class="fleet-dim-value highlight">2.900 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-label" data-short="Largh."><span
+                                            class="dim-full">Larghezza</span></span>
                                     <span class="fleet-dim-value highlight">1.620 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Altezza</span>
+                                    <span class="fleet-dim-label" data-short="Alt."><span
+                                            class="dim-full">Altezza</span></span>
                                     <span class="fleet-dim-value highlight">1.400 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Volume</span>
-                                    <span class="fleet-dim-value highlight">~6 m³</span>
+                                    <span class="fleet-dim-label" data-short="Port."><span
+                                            class="dim-full">Portata</span></span>
+                                    <span class="fleet-dim-value highlight">1.200 kg</span>
                                 </div>
                             </div>
                             <div class="fleet-dims-col">
                                 <div class="fleet-dims-col-label">Furgone totale</div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-label" data-short="Lung."><span
+                                            class="dim-full">Lunghezza</span></span>
                                     <span class="fleet-dim-value">5.399 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-label" data-short="Largh."><span
+                                            class="dim-full">Larghezza</span></span>
                                     <span class="fleet-dim-value">1.750 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Portata</span>
-                                    <span class="fleet-dim-value">1.000 kg</span>
+                                    <span class="fleet-dim-label" data-short="Alt."><span
+                                            class="dim-full">Altezza</span></span>
+                                    <span class="fleet-dim-value">1.971 mm</span>
                                 </div>
                                 <div class="fleet-dim-row">
-                                    <span class="fleet-dim-label">Posti</span>
+                                    <span class="fleet-dim-label" data-short="Posti"><span
+                                            class="dim-full">Posti</span></span>
                                     <span class="fleet-dim-value">3</span>
                                 </div>
                             </div>
