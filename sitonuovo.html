@@ -776,7 +776,7 @@
         .fleet-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 28px;
         }
 
         .fleet-card {
@@ -785,6 +785,8 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .fleet-card:hover {
@@ -792,13 +794,15 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* ── Photo ── */
         .fleet-card-img {
-            height: 240px;
-            background: var(--gray-100);
+            height: 220px;
+            background: var(--gray-50);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .fleet-card-img img {
@@ -807,21 +811,19 @@
             object-fit: cover;
         }
 
-        .fleet-card-body {
-            padding: 28px;
-        }
-
         .fleet-badge {
-            display: inline-block;
+            position: absolute;
+            top: 14px;
+            left: 14px;
             background: var(--blue);
             color: var(--white);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            z-index: 2;
         }
 
         .fleet-badge.new {
@@ -829,74 +831,211 @@
             color: var(--gray-800);
         }
 
-        .fleet-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
+        /* ── Header ── */
+        .fleet-card-header {
+            padding: 20px 24px 0;
+        }
+
+        .fleet-card-header h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gray-800);
             margin-bottom: 4px;
         }
 
         .fleet-example {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.82rem;
+            gap: 5px;
+            font-size: 0.78rem;
             color: var(--gray-600);
             font-style: italic;
-            margin-bottom: 12px;
-            padding: 4px 10px;
+            padding: 3px 10px;
             background: var(--gray-100);
             border-radius: 20px;
             border: 1px solid var(--gray-200);
+            margin-bottom: 14px;
         }
 
         .fleet-example .material-icons {
-            font-size: 0.9rem;
+            font-size: 13px;
             color: var(--blue);
         }
 
         .fleet-card .fleet-desc {
-            font-size: 0.92rem;
+            font-size: 0.87rem;
             color: var(--gray-600);
-            margin-bottom: 20px;
             line-height: 1.6;
+            margin-bottom: 16px;
+            padding: 0 24px;
         }
 
-        .fleet-specs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
+        /* ── Dimensions diagram ── */
+        .fleet-dims {
+            margin: 0 24px 16px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1.5px solid var(--gray-200);
         }
 
-        .fleet-spec {
+        .fleet-dims-title {
+            background: var(--blue);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 8px 14px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--gray-600);
+            gap: 6px;
         }
 
-        .fleet-spec .material-icons {
-            font-size: 18px;
+        .fleet-dims-title .material-icons {
+            font-size: 14px;
+        }
+
+        .fleet-dims-body {
+            background: var(--gray-50);
+            padding: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .fleet-dims-col {
+            padding: 0 8px;
+        }
+
+        .fleet-dims-col:first-child {
+            border-right: 1px solid var(--gray-200);
+            padding-left: 0;
+        }
+
+        .fleet-dims-col:last-child {
+            padding-right: 0;
+        }
+
+        .fleet-dims-col-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+        }
+
+        .fleet-dim-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dashed var(--gray-200);
+            gap: 8px;
+        }
+
+        .fleet-dim-row:last-child {
+            border-bottom: none;
+        }
+
+        .fleet-dim-label {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            white-space: nowrap;
+        }
+
+        .fleet-dim-value {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            white-space: nowrap;
+        }
+
+        .fleet-dim-value.highlight {
             color: var(--blue);
         }
 
-        .fleet-price {
+        /* ── SVG diagram ── */
+        .fleet-diagram-wrap {
+            margin: 0 24px 16px;
+            background: #f0f4ff;
+            border-radius: 14px;
+            border: 1.5px solid #c7d8f5;
+            padding: 16px 12px 10px;
+            position: relative;
+        }
+
+        .fleet-diagram-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--blue);
+            margin-bottom: 10px;
             display: flex;
-            align-items: baseline;
-            gap: 6px;
-            padding-top: 16px;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .fleet-diagram-label .material-icons {
+            font-size: 14px;
+        }
+
+        .fleet-diagram-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Price + CTA ── */
+        .fleet-card-footer {
+            padding: 16px 24px 22px;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             border-top: 1px solid var(--gray-200);
+            gap: 12px;
         }
 
         .fleet-price strong {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
+            font-weight: 800;
             color: var(--blue);
         }
 
         .fleet-price span {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             color: var(--gray-400);
+            display: block;
+            line-height: 1.3;
+        }
+
+        .fleet-cta {
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .fleet-cta:hover {
+            background: var(--blue-dark, #003d80);
+            transform: translateY(-1px);
+        }
+
+        .fleet-cta .material-icons {
+            font-size: 16px;
         }
 
         /* ═══════════════════════════════════════
@@ -1422,6 +1561,31 @@
 
             .fleet-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .fleet-dims-body {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .fleet-diagram-wrap {
+                margin: 0 16px 14px;
+            }
+
+            .fleet-dims {
+                margin: 0 16px 14px;
+            }
+
+            .fleet-card-footer {
+                padding: 14px 16px 18px;
+            }
+
+            .fleet-card-header {
+                padding: 16px 16px 0;
+            }
+
+            .fleet-card .fleet-desc {
+                padding: 0 16px;
             }
 
             .adv-grid {
@@ -1807,66 +1971,152 @@
             </div>
 
             <div class="fleet-grid">
-                <!-- Furgone Grande -->
+                <!-- ── FURGONE GRANDE ── -->
                 <article class="fleet-card fade-up">
                     <div class="fleet-card-img">
+                        <span class="fleet-badge">Pi&ugrave; richiesto</span>
                         <img src="citronjumper.png"
-                            alt="Noleggio furgone grande tipo Citroen Jumper a Modena e Reggio Emilia" loading="lazy">
+                            alt="Noleggio furgone grande tipo Citro&euml;n Jumper a Modena e Reggio Emilia"
+                            loading="lazy">
                     </div>
-                    <div class="fleet-card-body">
-                        <span class="fleet-badge">Piu richiesto</span>
+
+                    <div class="fleet-card-header">
                         <h3>Furgone Grande</h3>
                         <div class="fleet-example"><span class="material-icons">info_outline</span> Tipo Citro&euml;n
                             Jumper o similare</div>
-                        <p class="fleet-desc">Ideale per traslochi completi, trasporti merci voluminose ed eventi. Ampio
-                            vano di carico con portata fino a 1.500 kg.</p>
-                        <div class="fleet-specs">
-                            <div class="fleet-spec"><span class="material-icons">straighten</span> Lunghezza 5.9 m</div>
-                            <div class="fleet-spec"><span class="material-icons">height</span> Altezza 2.5 m</div>
-                            <div class="fleet-spec"><span class="material-icons">open_in_full</span> Vano 3.6 x 1.8 x
-                                2.0 m</div>
-                            <div class="fleet-spec"><span class="material-icons">fitness_center</span> Max 1.500 kg
+                    </div>
+
+                    <p class="fleet-desc">Ideale per traslochi completi, trasporti merci voluminose ed eventi. Ampio
+                        vano di carico con portata fino a 1.500 kg.</p>
+
+                    <!-- Tabella dimensioni -->
+                    <div class="fleet-dims">
+                        <div class="fleet-dims-title"><span class="material-icons">straighten</span> Dimensioni</div>
+                        <div class="fleet-dims-body">
+                            <div class="fleet-dims-col">
+                                <div class="fleet-dims-col-label">Vano di carico</div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-value highlight">3.705 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-value highlight">1.870 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Altezza</span>
+                                    <span class="fleet-dim-value highlight">1.932 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Volume</span>
+                                    <span class="fleet-dim-value highlight">~14 m³</span>
+                                </div>
                             </div>
-                            <div class="fleet-spec"><span class="material-icons">airline_seat_recline_normal</span> 3
-                                posti</div>
-                            <div class="fleet-spec"><span class="material-icons">inventory_2</span> Volume ~13 m&sup3;
+                            <div class="fleet-dims-col">
+                                <div class="fleet-dims-col-label">Furgone totale</div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-value">5.998 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-value">2.050 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Portata</span>
+                                    <span class="fleet-dim-value">1.500 kg</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Posti</span>
+                                    <span class="fleet-dim-value">3</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="fleet-card-footer">
                         <div class="fleet-price">
-                            <strong>da 90&euro;</strong><span>/ giorno &mdash; tutto incluso</span>
+                            <strong>da 90&euro;</strong>
+                            <span>/ giorno<br>tutto incluso</span>
                         </div>
+                        <button class="fleet-cta" onclick="bookVan('Furgone Grande (tipo Citroën Jumper)')">
+                            <span class="material-icons">chat</span> Prenota
+                        </button>
                     </div>
                 </article>
 
-                <!-- Furgone Medio -->
+                <!-- ── FURGONE MEDIO ── -->
                 <article class="fleet-card fade-up">
                     <div class="fleet-card-img">
+                        <span class="fleet-badge new">Disponibile</span>
                         <img src="talento.png" alt="Noleggio furgone medio tipo Fiat Talento a Modena e Reggio Emilia"
                             loading="lazy">
                     </div>
-                    <div class="fleet-card-body">
-                        <span class="fleet-badge new">Nuovo</span>
+
+                    <div class="fleet-card-header">
                         <h3>Furgone Medio</h3>
                         <div class="fleet-example"><span class="material-icons">info_outline</span> Tipo Fiat Talento o
                             similare</div>
-                        <p class="fleet-desc">Compatto e maneggevole, perfetto per piccoli traslochi, consegne urbane e
-                            trasporti leggeri. Facile da guidare e parcheggiare.</p>
-                        <div class="fleet-specs">
-                            <div class="fleet-spec"><span class="material-icons">straighten</span> Lunghezza ~5.0 m
+                    </div>
+
+                    <p class="fleet-desc">Compatto e maneggevole, perfetto per piccoli traslochi, consegne urbane e
+                        trasporti leggeri. Facile da guidare e parcheggiare.</p>
+
+
+
+                    <!-- Tabella dimensioni -->
+                    <div class="fleet-dims">
+                        <div class="fleet-dims-title"><span class="material-icons">straighten</span> Dimensioni</div>
+                        <div class="fleet-dims-body">
+                            <div class="fleet-dims-col">
+                                <div class="fleet-dims-col-label">Vano di carico</div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-value highlight">2.900 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-value highlight">1.620 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Altezza</span>
+                                    <span class="fleet-dim-value highlight">1.400 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Volume</span>
+                                    <span class="fleet-dim-value highlight">~6 m³</span>
+                                </div>
                             </div>
-                            <div class="fleet-spec"><span class="material-icons">height</span> Altezza ~2.0 m</div>
-                            <div class="fleet-spec"><span class="material-icons">open_in_full</span> Vano passo medio
-                            </div>
-                            <div class="fleet-spec"><span class="material-icons">fitness_center</span> Max 1.000 kg
-                            </div>
-                            <div class="fleet-spec"><span class="material-icons">airline_seat_recline_normal</span> 3
-                                posti</div>
-                            <div class="fleet-spec"><span class="material-icons">inventory_2</span> Volume ~6 m&sup3;
+                            <div class="fleet-dims-col">
+                                <div class="fleet-dims-col-label">Furgone totale</div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Lunghezza</span>
+                                    <span class="fleet-dim-value">5.399 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Larghezza</span>
+                                    <span class="fleet-dim-value">1.750 mm</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Portata</span>
+                                    <span class="fleet-dim-value">1.000 kg</span>
+                                </div>
+                                <div class="fleet-dim-row">
+                                    <span class="fleet-dim-label">Posti</span>
+                                    <span class="fleet-dim-value">3</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="fleet-card-footer">
                         <div class="fleet-price">
-                            <strong>da 80&euro;</strong><span>/ giorno &mdash; tutto incluso</span>
+                            <strong>da 80&euro;</strong>
+                            <span>/ giorno<br>tutto incluso</span>
                         </div>
+                        <button class="fleet-cta" onclick="bookVan('Furgone Medio (tipo Fiat Talento)')">
+                            <span class="material-icons">chat</span> Prenota
+                        </button>
                     </div>
                 </article>
             </div>
@@ -2188,7 +2438,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>info@heyrent.it &mdash; Tutti i diritti riservati &copy; 2025 <strong>HeyRent!</strong> &mdash; <a href="/privacy-policy" style="color: rgba(255,255,255,0.5); text-decoration: none;">Privacy Policy</a></p>
+                <p>info@heyrent.it &mdash; Tutti i diritti riservati &copy; 2025 <strong>HeyRent!</strong> &mdash; <a
+                        href="/privacy-policy" style="color: rgba(255,255,255,0.5); text-decoration: none;">Privacy
+                        Policy</a></p>
             </div>
         </div>
     </footer>
@@ -2446,6 +2698,30 @@
             observer.observe(el);
         });
 
+        // Book van from fleet card
+        function bookVan(vanType) {
+            var isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                // Open mobile overlay and pre-select van type
+                openMobileBooking();
+                var sel = document.getElementById('m-van-type');
+                if (sel) {
+                    for (var i = 0; i < sel.options.length; i++) {
+                        if (sel.options[i].value === vanType) { sel.selectedIndex = i; break; }
+                    }
+                }
+            } else {
+                // Pre-select van type in desktop form and scroll to booking
+                var sel = document.getElementById('van-type');
+                if (sel) {
+                    for (var i = 0; i < sel.options.length; i++) {
+                        if (sel.options[i].value === vanType) { sel.selectedIndex = i; break; }
+                    }
+                }
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         // Init
         window.addEventListener('load', setDefaultDates);
     </script>
@@ -2459,40 +2735,46 @@
             right: 0;
             z-index: 9999;
             background: #1a2744;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 16px 24px;
             display: flex;
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
-            box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
             font-family: 'Montserrat', sans-serif;
             transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         #cookie-banner.visible {
             transform: translateY(0);
         }
+
         #cookie-banner-text {
             flex: 1;
             min-width: 220px;
             font-size: 0.82rem;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.5;
         }
+
         #cookie-banner-text strong {
             color: #fff;
             font-weight: 700;
         }
+
         #cookie-banner-text a {
             color: #ffc107;
             text-decoration: underline;
         }
+
         #cookie-banner-actions {
             display: flex;
             gap: 10px;
             flex-shrink: 0;
         }
+
         .cookie-btn {
             padding: 9px 20px;
             border-radius: 8px;
@@ -2503,20 +2785,37 @@
             border: none;
             transition: opacity 0.2s;
         }
-        .cookie-btn:hover { opacity: 0.85; }
+
+        .cookie-btn:hover {
+            opacity: 0.85;
+        }
+
         .cookie-btn-accept {
             background: #0056b3;
             color: #fff;
         }
+
         .cookie-btn-reject {
             background: transparent;
-            color: rgba(255,255,255,0.6);
-            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         @media (max-width: 600px) {
-            #cookie-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
-            #cookie-banner-actions { width: 100%; }
-            .cookie-btn { flex: 1; text-align: center; }
+            #cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            #cookie-banner-actions {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+                text-align: center;
+            }
         }
     </style>
 
@@ -2524,7 +2823,7 @@
         <div id="cookie-banner-text">
             <strong>🍪 Questo sito usa cookie tecnici</strong> — necessari al funzionamento della pagina — e cookie di
             analisi (Google Ads) per misurare le visite. <strong>Non vendiamo né condividiamo i tuoi dati con terze
-            parti.</strong> Puoi accettare o continuare senza cookie di analisi.
+                parti.</strong> Puoi accettare o continuare senza cookie di analisi.
             <a href="/privacy-policy">Privacy policy</a>
         </div>
         <div id="cookie-banner-actions">
