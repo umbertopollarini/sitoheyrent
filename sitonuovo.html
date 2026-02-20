@@ -763,27 +763,20 @@
         }
 
         .dims-preview-body {
-            padding: 10px 14px;
+            padding: 8px 14px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
         }
 
         .dims-preview-row {
             display: flex;
             flex-direction: column;
-            padding: 7px 12px 7px 0;
+            padding: 6px 10px;
             font-size: 0.8rem;
-            border-bottom: 1px dashed var(--gray-200);
         }
 
-        .dims-preview-row:nth-child(even) {
-            padding-left: 12px;
-            padding-right: 0;
+        .dims-preview-row:not(:first-child) {
             border-left: 1px dashed var(--gray-200);
-        }
-
-        .dims-preview-row:nth-last-child(-n+2) {
-            border-bottom: none;
         }
 
         .dims-preview-row span:first-child {
