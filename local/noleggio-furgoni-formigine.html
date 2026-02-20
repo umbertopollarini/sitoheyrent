@@ -575,6 +575,72 @@
             appearance: auto;
         }
 
+        .dims-preview {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 8px;
+            animation: fadeInDims 0.2s ease;
+        }
+
+        @keyframes fadeInDims {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dims-preview-title {
+            background: var(--blue);
+            color: #fff;
+            padding: 8px 14px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dims-preview-title .material-icons {
+            font-size: 15px;
+        }
+
+        .dims-preview-body {
+            padding: 8px 14px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .dims-preview-row {
+            display: flex;
+            flex-direction: column;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+        }
+
+        .dims-preview-row:not(:first-child) {
+            border-left: 1px dashed var(--gray-200);
+        }
+
+        .dims-preview-row span:first-child {
+            color: var(--gray-600);
+            font-size: 0.72rem;
+            margin-bottom: 2px;
+        }
+
+        .dims-preview-row span:last-child {
+            font-weight: 700;
+            color: var(--blue);
+        }
+
         .field input:focus,
         .field select:focus {
             outline: none;
@@ -1944,10 +2010,24 @@
                         </div>
                         <div class="field">
                             <label for="van-type">Tipologia furgone</label>
-                            <select id="van-type" required>
+                            <select id="van-type" required onchange="updateDimsPreview('dims-wa', this.value)">
                                 <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
                                 <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
                             </select>
+                            <div class="dims-preview" id="dims-wa">
+                                <div class="dims-preview-title"><span class="material-icons">straighten</span> Vano di
+                                    carico</div>
+                                <div class="dims-preview-body">
+                                    <div class="dims-preview-row"><span>Lunghezza</span><span id="dims-wa-l">370
+                                            cm</span></div>
+                                    <div class="dims-preview-row"><span>Larghezza</span><span id="dims-wa-w">187
+                                            cm</span></div>
+                                    <div class="dims-preview-row"><span>Altezza</span><span id="dims-wa-h">193 cm</span>
+                                    </div>
+                                    <div class="dims-preview-row"><span>Portata</span><span id="dims-wa-p">1.500
+                                            kg</span></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="field-row">
                             <div class="field">
@@ -2014,10 +2094,24 @@
                         </div>
                         <div class="field">
                             <label for="e-van-type">Tipologia furgone</label>
-                            <select id="e-van-type">
+                            <select id="e-van-type" onchange="updateDimsPreview('dims-em', this.value)">
                                 <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
                                 <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
                             </select>
+                            <div class="dims-preview" id="dims-em">
+                                <div class="dims-preview-title"><span class="material-icons">straighten</span> Vano di
+                                    carico</div>
+                                <div class="dims-preview-body">
+                                    <div class="dims-preview-row"><span>Lunghezza</span><span id="dims-em-l">370
+                                            cm</span></div>
+                                    <div class="dims-preview-row"><span>Larghezza</span><span id="dims-em-w">187
+                                            cm</span></div>
+                                    <div class="dims-preview-row"><span>Altezza</span><span id="dims-em-h">193 cm</span>
+                                    </div>
+                                    <div class="dims-preview-row"><span>Portata</span><span id="dims-em-p">1.500
+                                            kg</span></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="field-row">
                             <div class="field">
@@ -2555,10 +2649,19 @@
             </div>
             <div class="field">
                 <label for="m-van-type">Tipologia furgone</label>
-                <select id="m-van-type" required>
+                <select id="m-van-type" required onchange="updateDimsPreview('dims-mb', this.value)">
                     <option value="Furgone Grande (tipo Citroën Jumper)" selected>Furgone Grande</option>
                     <option value="Furgone Medio (tipo Fiat Talento)">Furgone Medio</option>
                 </select>
+                <div class="dims-preview" id="dims-mb">
+                    <div class="dims-preview-title"><span class="material-icons">straighten</span> Vano di carico</div>
+                    <div class="dims-preview-body">
+                        <div class="dims-preview-row"><span>Lunghezza</span><span id="dims-mb-l">370 cm</span></div>
+                        <div class="dims-preview-row"><span>Larghezza</span><span id="dims-mb-w">187 cm</span></div>
+                        <div class="dims-preview-row"><span>Altezza</span><span id="dims-mb-h">193 cm</span></div>
+                        <div class="dims-preview-row"><span>Portata</span><span id="dims-mb-p">1.500 kg</span></div>
+                    </div>
+                </div>
             </div>
             <div class="field-row">
                 <div class="field">
@@ -2647,6 +2750,19 @@
         var observer = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
         function bookVan(vanType) { var isMobile = window.innerWidth <= 768; if (isMobile) { openMobileBooking(); var sel = document.getElementById('m-van-type'); if (sel) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === vanType) { sel.selectedIndex = i; break; } } } } else { var sel = document.getElementById('van-type'); if (sel) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === vanType) { sel.selectedIndex = i; break; } } } document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+        var DIMS = {
+            grande: { l: '370 cm', w: '187 cm', h: '193 cm', p: '1.500 kg' },
+            medio: { l: '290 cm', w: '162 cm', h: '140 cm', p: '1.200 kg' }
+        };
+        function updateDimsPreview(previewId, val) {
+            var key = (val && val.toLowerCase().indexOf('medio') !== -1) ? 'medio' : 'grande';
+            var d = DIMS[key];
+            var sfx = previewId.split('dims-')[1];
+            document.getElementById('dims-' + sfx + '-l').textContent = d.l;
+            document.getElementById('dims-' + sfx + '-w').textContent = d.w;
+            document.getElementById('dims-' + sfx + '-h').textContent = d.h;
+            document.getElementById('dims-' + sfx + '-p').textContent = d.p;
+        }
         window.addEventListener('load', setDefaultDates);
     </script>
 
