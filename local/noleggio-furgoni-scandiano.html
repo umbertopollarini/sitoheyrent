@@ -2381,8 +2381,8 @@
                 <div class="incl-tile fade-up">
                     <div class="incl-tile-icon"><span class="material-icons">local_shipping</span></div>
                     <div class="incl-tile-text">
-                        <div class="incl-tile-title">Consegna a domicilio</div>
-                        <div class="incl-tile-desc">Il furgone arriva da te a Scandiano</div>
+                        <div class="incl-tile-title">Kit Base Noleggio</div>
+                        <div class="incl-tile-desc">Cinghie e Fasce fermacarico</div>
                     </div>
                 </div>
                 <div class="incl-tile fade-up">
@@ -2612,7 +2612,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>info@heyrent.it &mdash; Tutti i diritti riservati &copy; 2025 <strong>HeyRent!</strong> &mdash; <a
+                <p>info@heyrent.it &mdash; Tutti i diritti riservati &copy; 2026 <strong>HeyRent!</strong> &mdash; <a
                         href="/privacy-policy" style="color: rgba(255,255,255,0.5); text-decoration: none;">Privacy
                         Policy</a></p>
             </div>
@@ -2760,9 +2760,7 @@
     </script>
 
     <div id="cookie-banner" role="dialog" aria-label="Consenso cookie">
-        <div id="cookie-banner-text"><strong>🍪 Questo sito usa cookie tecnici</strong> — necessari al funzionamento
-            della pagina — e cookie di analisi (Google Ads) per misurare le visite. <strong>Non vendiamo né condividiamo
-                i tuoi dati con terze parti.</strong> Puoi accettare o continuare senza cookie di analisi. <a
+                <div id="cookie-banner-text">Usiamo cookie tecnici e di analisi. <a
                 href="/privacy-policy">Privacy policy</a></div>
         <div id="cookie-banner-actions">
             <button class="cookie-btn cookie-btn-reject" onclick="cookieChoice(false)">Solo tecnici</button>
@@ -2770,8 +2768,8 @@
         </div>
     </div>
     <script>
-        (function () { var c = localStorage.getItem('cookie_consent'); if (c === null) { setTimeout(function () { document.getElementById('cookie-banner').classList.add('visible'); }, 800); } else if (c === 'true') { enableAnalytics(); } })();
-        function cookieChoice(a) { localStorage.setItem('cookie_consent', a ? 'true' : 'false'); var b = document.getElementById('cookie-banner'); b.style.transform = 'translateY(100%)'; setTimeout(function () { b.style.display = 'none'; }, 400); if (a) enableAnalytics(); }
+        (function () { var c = localStorage.getItem('cookie_consent'); if (c === null) { setTimeout(function () { document.getElementById('cookie-banner').classList.add('visible'); updateCtaPosition(); }, 800); } else if (c === 'true') { enableAnalytics(); } })();
+        function updateCtaPosition() { var banner = document.getElementById('cookie-banner'); var cta = document.querySelector('.mobile-cta-btn'); if (!cta) return; var bannerVisible = banner && banner.classList.contains('visible') && banner.style.display !== 'none'; cta.style.bottom = bannerVisible ? (banner.offsetHeight + 12) + 'px' : '20px'; } function cookieChoice(a) { localStorage.setItem('cookie_consent', a ? 'true' : 'false'); var b = document.getElementById('cookie-banner'); b.style.transform = 'translateY(100%)'; setTimeout(function () { b.style.display = 'none'; updateCtaPosition(); }, 400); if (a) enableAnalytics(); }
         function enableAnalytics() { if (window._gtagLoaded) return; window._gtagLoaded = true; var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17203825536'; document.head.appendChild(s); window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } window.gtag = gtag; gtag('js', new Date()); gtag('config', 'AW-17203825536'); }
     </script>
 </body>
