@@ -1552,7 +1552,7 @@
             cursor: pointer;
             box-shadow: 0 6px 24px rgba(0, 86, 179, 0.4);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            animation: ctaFloat 3s ease-in-out infinite;
+            animation: ctaGlow 2.8s ease-in-out infinite;
             overflow: visible;
         }
 
@@ -1575,22 +1575,9 @@
             color: var(--white);
         }
 
-        @keyframes ctaFloat {
-            0%, 100% { transform: translateY(0); box-shadow: 0 6px 24px rgba(0,86,179,0.4); }
-            50%       { transform: translateY(-5px); box-shadow: 0 14px 32px rgba(0,86,179,0.55); }
-        }
-        @keyframes ctaRing {
-            0%   { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.55); opacity: 0; }
-        }
-        .mobile-cta-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50px;
-            background: var(--blue);
-            animation: ctaRing 2s ease-out infinite;
-            z-index: -1;
+        @keyframes ctaGlow {
+            0%, 100% { transform: translateY(0);    box-shadow: 0 4px 18px rgba(0,86,179,0.35); }
+            50%       { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,86,179,0.65), 0 0 0 6px rgba(0,86,179,0.12); }
         }
 
         .mobile-booking-overlay {
