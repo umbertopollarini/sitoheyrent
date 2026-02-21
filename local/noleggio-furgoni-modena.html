@@ -1277,6 +1277,34 @@
             line-height: 1.5;
         }
 
+        .kit-price {
+            margin-left: auto;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 56px;
+        }
+
+        .kit-price-tag {
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .kit-price-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            opacity: 0.7;
+            letter-spacing: 0.03em;
+            margin-top: 2px;
+        }
+
+        .kit-base .kit-price-tag   { color: rgba(255,255,255,0.9); }
+        .kit-trasloco .kit-price-tag { color: var(--gold); }
+        .kit-moto .kit-price-tag   { color: #38bdf8; }
+
         .commitments-list {
             max-width: 720px;
             margin: 0 auto;
@@ -2401,6 +2429,10 @@
                         <div class="kit-name">Kit Base</div>
                         <div class="kit-items">Cinghie, corde elastiche, portatelefono</div>
                     </div>
+                    <div class="kit-price">
+                        <div class="kit-price-tag">&#x2714;</div>
+                        <div class="kit-price-label">INCLUSO</div>
+                    </div>
                 </div>
                 <div class="kit-card kit-trasloco fade-up">
                     <div class="kit-icon"><span class="material-icons">inventory_2</span></div>
@@ -2408,12 +2440,20 @@
                         <div class="kit-name">Kit Trasloco+</div>
                         <div class="kit-items">Carrello 3 ruote + tutto il Kit Base</div>
                     </div>
+                    <div class="kit-price">
+                        <div class="kit-price-tag">+10€</div>
+                        <div class="kit-price-label">OPTIONAL</div>
+                    </div>
                 </div>
                 <div class="kit-card kit-moto fade-up">
                     <div class="kit-icon"><span class="material-icons">two_wheeler</span></div>
                     <div class="kit-info">
                         <div class="kit-name">Kit Moto</div>
                         <div class="kit-items">Rampa moto, cinghie ferma moto</div>
+                    </div>
+                    <div class="kit-price">
+                        <div class="kit-price-tag">+10€</div>
+                        <div class="kit-price-label">OPTIONAL</div>
                     </div>
                 </div>
             </div>
