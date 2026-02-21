@@ -11,21 +11,20 @@
         content="noleggio furgoni, noleggio furgoni Modena, noleggio furgoni Reggio Emilia, affitto furgone, noleggio furgone grande, noleggio furgone medio, traslochi Modena, noleggio veicoli commerciali, noleggio furgoni Sassuolo, noleggio furgoni Rubiera, furgone tipo Citroën Jumper, furgone tipo Fiat Talento, pubblicità mobile">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.heyrent.it">
-    <meta property="og:title" content="HeyRent! — Noleggio Furgoni Tutto Incluso | Modena e Reggio Emilia">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:url" content="https://www.heyrent.it/">
+    <meta property="og:title" content="Noleggio Furgoni Tutto Incluso — Modena, Reggio Emilia e Rubiera | HeyRent!">
     <meta property="og:description"
-        content="Furgoni grandi e medi, tutto incluso. Preventivo immediato su WhatsApp, aperti 7 giorni su 7.">
-    <meta property="og:image" content="social.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.heyrent.it">
-    <meta property="twitter:title" content="HeyRent! — Noleggio Furgoni Tutto Incluso | Modena e Reggio Emilia">
-    <meta property="twitter:description"
-        content="Furgoni grandi e medi, tutto incluso. Preventivo immediato su WhatsApp, aperti 7 giorni su 7.">
-    <meta property="twitter:image" content="social.png">
+        content="Noleggio furgoni a Modena e Reggio Emilia tutto incluso, da 80€/giorno. Assicurazione, soccorso e attrezzatura compresi. Aperti 7 giorni su 7, domenica inclusa.">
+    <meta property="og:image" content="https://www.heyrent.it/social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Noleggio Furgoni Tutto Incluso — Modena, Reggio Emilia e Rubiera | HeyRent!">
+    <meta name="twitter:description"
+        content="Noleggio furgoni a Modena e Reggio Emilia tutto incluso, da 80€/giorno. Assicurazione, soccorso e attrezzatura compresi. Aperti 7 giorni su 7, domenica inclusa.">
+    <meta name="twitter:image" content="https://www.heyrent.it/social.png">
 
     <link rel="canonical" href="https://www.heyrent.it">
-    <title>Noleggio Furgoni Modena e Reggio Emilia — Tutto Incluso | HeyRent!</title>
+    <title>Noleggio Furgoni Tutto Incluso — Modena, Reggio Emilia e Rubiera | HeyRent!</title>
     <link rel="icon" href="social.png" type="image/x-icon">
 
     <!-- Google tag (gtag.js) -->
@@ -175,7 +174,7 @@
         {
           "@type":"Question",
           "name":"Fate consegna del furgone a domicilio?",
-          "acceptedAnswer":{"@type":"Answer","text":"Sì, nelle zone vicine alla sede possiamo consegnare senza sovrapprezzo. Indica l'indirizzo nel messaggio WhatsApp."}
+          "acceptedAnswer":{"@type":"Answer","text":"Sì, consegniamo il furgone al tuo indirizzo (domicilio, sede aziendale o altro). Il servizio di consegna parte da 10€ e varia in base alla distanza dalla nostra sede di Rubiera (RE). Indica l'indirizzo nella richiesta di preventivo per ricevere il costo esatto."}
         },
         {
           "@type":"Question",
@@ -1549,9 +1548,17 @@
             margin-top: 2px;
         }
 
-        .kit-base .kit-price-tag   { color: rgba(255,255,255,0.9); }
-        .kit-trasloco .kit-price-tag { color: var(--gold); }
-        .kit-moto .kit-price-tag   { color: #38bdf8; }
+        .kit-base .kit-price-tag {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .kit-trasloco .kit-price-tag {
+            color: var(--gold);
+        }
+
+        .kit-moto .kit-price-tag {
+            color: #38bdf8;
+        }
 
         @media (max-width: 768px) {
             .kits-row {
@@ -2066,8 +2073,17 @@
         }
 
         @keyframes ctaGlow {
-            0%, 100% { transform: translateY(0);    box-shadow: 0 4px 18px rgba(0,86,179,0.35); }
-            50%       { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,86,179,0.65), 0 0 0 6px rgba(0,86,179,0.12); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+                box-shadow: 0 4px 18px rgba(0, 86, 179, 0.35);
+            }
+
+            50% {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 28px rgba(0, 86, 179, 0.65), 0 0 0 6px rgba(0, 86, 179, 0.12);
+            }
         }
 
         .mobile-booking-overlay {
@@ -2170,6 +2186,44 @@
             transform: translateY(0);
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.heyrent.it/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.heyrent.it/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.heyrent.it/#organization",
+      "name": "HeyRent!",
+      "url": "https://www.heyrent.it/",
+      "logo": "https://www.heyrent.it/social.png",
+      "telephone": "+39 351 644 2583",
+      "email": "info@heyrent.it",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rubiera",
+        "addressRegion": "RE",
+        "postalCode": "42048",
+        "addressCountry": "IT"
+      },
+      "sameAs": [
+        "https://wa.me/393516442583"
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -2207,9 +2261,8 @@
                         <div class="hero-badge"><span class="material-icons">schedule</span> Aperti 7/7 dalle 07:00 alle
                             22:00</div>
                     </div>
-                    <h1>Noleggia il tuo furgone <span>in pochi minuti</span></h1>
-                    <p>Noleggio furgoni grandi e medi tra Modena e Reggio Emilia, tutto incluso e preventivo
-                        immediato su WhatsApp.</p>
+                    <h1>Noleggio furgoni tutto incluso <span>— Modena, Reggio Emilia e Rubiera</span></h1>
+                    <p>Furgoni grandi e medi, tutto incluso, preventivo immediato, aperti 7 giorni su 7.</p>
 
                     <div class="hero-bottom">
                         <div class="hero-van-card">
@@ -2928,8 +2981,9 @@
                         <span class="material-icons">expand_more</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Si, nelle zone vicine alla sede possiamo consegnare il furgone senza sovrapprezzo. Indica
-                            l'indirizzo nel messaggio WhatsApp.</p>
+                        <p>Sì, consegniamo il furgone al tuo indirizzo (domicilio, sede aziendale o altro). Il servizio
+                            di consegna parte da 10€ e varia in base alla distanza dalla nostra sede di Rubiera (RE).
+                            Indica l'indirizzo nella richiesta di preventivo per ricevere il costo esatto.</p>
                     </div>
                 </div>
                 <div class="faq-item">
