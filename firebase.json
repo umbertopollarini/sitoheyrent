@@ -3,6 +3,8 @@
     "public": ".",
     "ignore": [
       "firebase.json",
+      "sitonuovo.html",
+      "index.html.bak",
       "**/.*",
       "**/node_modules/**"
     ],
@@ -39,6 +41,22 @@
       {
         "source": "/noleggio-furgoni-sassuolo",
         "destination": "/local/noleggio-furgoni-sassuolo.html"
+      },
+      {
+        "source": "/noleggio-furgoni-carpi",
+        "destination": "/local/noleggio-furgoni-carpi.html"
+      },
+      {
+        "source": "/noleggio-furgoni-formigine",
+        "destination": "/local/noleggio-furgoni-formigine.html"
+      },
+      {
+        "source": "/noleggio-furgoni-scandiano",
+        "destination": "/local/noleggio-furgoni-scandiano.html"
+      },
+      {
+        "source": "/privacy-policy",
+        "destination": "/privacy-policy.html"
       }
     ],
     "headers": [
