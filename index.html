@@ -826,6 +826,8 @@
             background: var(--gray-50);
             transition: var(--transition);
             appearance: auto;
+            box-sizing: border-box;
+            min-width: 0;
         }
 
         .field input:focus,
@@ -833,6 +835,13 @@
             outline: none;
             border-color: var(--blue);
             box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .field input[type="date"],
+        .field input[type="time"] {
+            padding: 10px 4px 10px 8px;
+            font-size: 0.78rem;
+            letter-spacing: -0.01em;
         }
 
         .included-strip {
@@ -2013,6 +2022,7 @@
 
             .mobile-booking-panel .field-row {
                 grid-template-columns: 1fr 1fr;
+                gap: 10px;
             }
 
             .hero-text h1 {
@@ -2106,11 +2116,12 @@
         .mobile-booking-panel {
             background: var(--white);
             width: 100%;
-            max-height: 92vh;
+            max-height: 88vh;
             overflow-y: auto;
             border-radius: 20px 20px 0 0;
-            padding: 24px 20px 32px;
+            padding: 20px 20px max(32px, env(safe-area-inset-bottom));
             animation: slideUp 0.35s ease;
+            box-sizing: border-box;
         }
 
         @keyframes slideUp {
@@ -2128,12 +2139,19 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            padding: 4px 0 12px;
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1;
         }
 
         .mobile-panel-header h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--gray-800);
+            flex: 1;
         }
 
         .mobile-panel-close {
@@ -2825,7 +2843,7 @@
                         <div class="kit-items">Cinghie, corde elastiche, portatelefono</div>
                     </div>
                     <div class="kit-price">
-                        <div class="kit-price-tag">&#x2714;</div>
+                        <div class="kit-price-tag"><span class="material-icons" style="font-size:1.2rem;">check_circle</span></div>
                         <div class="kit-price-label">INCLUSO</div>
                     </div>
                 </div>
