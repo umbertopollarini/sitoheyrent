@@ -663,6 +663,45 @@
             letter-spacing: -0.01em;
         }
 
+        .mobile-booking-panel .field-row.date-row {
+            gap: 20px;
+        }
+
+        /* Fix iOS: date/time nel pannello mobile — padding sinistro forzato via margine interno */
+        .mobile-booking-panel .field input[type="date"],
+        .mobile-booking-panel .field input[type="time"] {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;
+            font-size: 0.8rem;
+            color: var(--gray-800);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .mobile-booking-panel .field .input-wrap {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 10px;
+            background: var(--gray-50);
+            padding: 10px 10px;
+            gap: 6px;
+            box-sizing: border-box;
+        }
+
+        .mobile-booking-panel .field .input-wrap:focus-within {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,86,179,0.1);
+        }
+
+        .mobile-booking-panel .field .input-wrap .material-icons {
+            font-size: 17px;
+            color: var(--gray-500);
+            flex-shrink: 0;
+        }
+
         .included-strip {
             background: var(--gray-50);
             border: 1px solid var(--gray-200);
@@ -1875,7 +1914,7 @@
 
             .mobile-booking-panel .field-row {
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 16px;
             }
 
             .hero-text h1 {
@@ -2736,17 +2775,37 @@
                 <h2>Richiedi preventivo</h2>
                 <button class="mobile-panel-close" onclick="closeMobileBooking()" aria-label="Chiudi">&times;</button>
             </div>
-            <div class="field-row">
-                <div class="field"><label for="m-pickup-date">Data ritiro</label><input type="date" id="m-pickup-date"
-                        required></div>
-                <div class="field"><label for="m-pickup-time">Ora ritiro</label><input type="time" id="m-pickup-time"
-                        required></div>
+                        <div class="field-row" style="gap:20px;">
+                <div class="field">
+                    <label for="m-pickup-date">Data ritiro</label>
+                    <div class="input-wrap">
+                        <span class="material-icons">calendar_today</span>
+                        <input type="date" id="m-pickup-date" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="m-pickup-time">Ora ritiro</label>
+                    <div class="input-wrap">
+                        <span class="material-icons">schedule</span>
+                        <input type="time" id="m-pickup-time" required>
+                    </div>
+                </div>
             </div>
-            <div class="field-row">
-                <div class="field"><label for="m-dropoff-date">Data rilascio</label><input type="date"
-                        id="m-dropoff-date" required></div>
-                <div class="field"><label for="m-dropoff-time">Ora rilascio</label><input type="time"
-                        id="m-dropoff-time" required></div>
+            <div class="field-row" style="gap:20px;">
+                <div class="field">
+                    <label for="m-dropoff-date">Data rilascio</label>
+                    <div class="input-wrap">
+                        <span class="material-icons">calendar_today</span>
+                        <input type="date" id="m-dropoff-date" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="m-dropoff-time">Ora rilascio</label>
+                    <div class="input-wrap">
+                        <span class="material-icons">schedule</span>
+                        <input type="time" id="m-dropoff-time" required>
+                    </div>
+                </div>
             </div>
             <div class="field">
                 <label for="m-van-type">Tipologia furgone</label>
@@ -2842,8 +2901,8 @@
         document.getElementById('m-pickup-date').addEventListener('change', function () { document.getElementById('m-dropoff-date').value = ''; document.getElementById('m-dropoff-time').value = ''; });
         document.getElementById('m-dropoff-date').addEventListener('change', function () { document.getElementById('m-dropoff-time').value = '20:00'; });
         document.getElementById('e-dropoff-date').addEventListener('change', function () { document.getElementById('e-dropoff-time').value = '20:00'; });
-        function sendWhatsApp() { var d = document.getElementById('pickup-date').value, t = document.getElementById('pickup-time').value, d2 = document.getElementById('dropoff-date').value, t2 = document.getElementById('dropoff-time').value, v = document.getElementById('van-type').value, k = document.getElementById('km-select').value, p = document.getElementById('piano-select').value; if (!d || !t || !d2 || !t2 || !v || !k) { alert('Per favore, compila tutti i campi.'); return; } var msg = ['Ciao, vorrei prenotare il furgone a Reggio Emilia:', '- *Data di ritiro:* ' + d + ' alle ' + t, '- *Data di rilascio:* ' + d2 + ' alle ' + t2, '- *Tipologia furgone:* ' + v, '- *Piano attrezzatura:* ' + p, '- *Chilometri previsti:* ' + k, '', 'Attendo il preventivo, grazie!'].join('\n'); window.open('https://wa.me/393516442583?text=' + encodeURIComponent(msg), '_blank'); }
-        function sendWhatsAppMobile() { var d = document.getElementById('m-pickup-date').value, t = document.getElementById('m-pickup-time').value, d2 = document.getElementById('m-dropoff-date').value, t2 = document.getElementById('m-dropoff-time').value, v = document.getElementById('m-van-type').value, k = document.getElementById('m-km-select').value, p = document.getElementById('m-piano-select').value; if (!d || !t || !d2 || !t2 || !v || !k) { alert('Per favore, compila tutti i campi.'); return; } var msg = ['Ciao, vorrei prenotare il furgone a Reggio Emilia:', '- *Data di ritiro:* ' + d + ' alle ' + t, '- *Data di rilascio:* ' + d2 + ' alle ' + t2, '- *Tipologia furgone:* ' + v, '- *Piano attrezzatura:* ' + p, '- *Chilometri previsti:* ' + k, '', 'Attendo il preventivo, grazie!'].join('\n'); window.open('https://wa.me/393516442583?text=' + encodeURIComponent(msg), '_blank'); }
+        function sendWhatsApp() { var d = document.getElementById('pickup-date').value, t = document.getElementById('pickup-time').value, d2 = document.getElementById('dropoff-date').value, t2 = document.getElementById('dropoff-time').value, v = document.getElementById('van-type').value, k = document.getElementById('km-select').value, p = document.getElementById('piano-select').value; if (!d || !t || !d2 || !t2 || !v || !k) { alert('Per favore, compila tutti i campi.'); return; } var msg = ['Ciao, vorrei prenotare il furgone:', '- *Data di ritiro:* ' + d + ' alle ' + t, '- *Data di rilascio:* ' + d2 + ' alle ' + t2, '- *Tipologia furgone:* ' + v, '- *Piano attrezzatura:* ' + p, '- *Chilometri previsti:* ' + k, '', 'Attendo il preventivo, grazie!'].join('\n'); window.open('https://wa.me/393516442583?text=' + encodeURIComponent(msg), '_blank'); }
+        function sendWhatsAppMobile() { var d = document.getElementById('m-pickup-date').value, t = document.getElementById('m-pickup-time').value, d2 = document.getElementById('m-dropoff-date').value, t2 = document.getElementById('m-dropoff-time').value, v = document.getElementById('m-van-type').value, k = document.getElementById('m-km-select').value, p = document.getElementById('m-piano-select').value; if (!d || !t || !d2 || !t2 || !v || !k) { alert('Per favore, compila tutti i campi.'); return; } var msg = ['Ciao, vorrei prenotare il furgone:', '- *Data di ritiro:* ' + d + ' alle ' + t, '- *Data di rilascio:* ' + d2 + ' alle ' + t2, '- *Tipologia furgone:* ' + v, '- *Piano attrezzatura:* ' + p, '- *Chilometri previsti:* ' + k, '', 'Attendo il preventivo, grazie!'].join('\n'); window.open('https://wa.me/393516442583?text=' + encodeURIComponent(msg), '_blank'); }
         function openMobileBooking() { setDefaultDates(); document.getElementById('mobile-overlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeMobileBooking() { document.getElementById('mobile-overlay').classList.remove('active'); document.body.style.overflow = ''; }
         function closeMobileBookingOutside(e) { if (e.target === document.getElementById('mobile-overlay')) closeMobileBooking(); }

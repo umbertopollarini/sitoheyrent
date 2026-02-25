@@ -844,6 +844,45 @@
             letter-spacing: -0.01em;
         }
 
+        .mobile-booking-panel .field-row.date-row {
+            gap: 20px;
+        }
+
+        /* Fix iOS: date/time nel pannello mobile — padding sinistro forzato via margine interno */
+        .mobile-booking-panel .field input[type="date"],
+        .mobile-booking-panel .field input[type="time"] {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;
+            font-size: 0.8rem;
+            color: var(--gray-800);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .mobile-booking-panel .field .input-wrap {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 10px;
+            background: var(--gray-50);
+            padding: 10px 10px;
+            gap: 6px;
+            box-sizing: border-box;
+        }
+
+        .mobile-booking-panel .field .input-wrap:focus-within {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,86,179,0.1);
+        }
+
+        .mobile-booking-panel .field .input-wrap .material-icons {
+            font-size: 17px;
+            color: var(--gray-500);
+            flex-shrink: 0;
+        }
+
         .included-strip {
             background: var(--gray-50);
             border: 1px solid var(--gray-200);
@@ -2022,7 +2061,7 @@
 
             .mobile-booking-panel .field-row {
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 16px;
             }
 
             .hero-text h1 {
@@ -3125,25 +3164,37 @@
                 <button class="mobile-panel-close" onclick="closeMobileBooking()" aria-label="Chiudi">&times;</button>
             </div>
 
-            <div class="field-row">
+            <div class="field-row" style="gap:20px;">
                 <div class="field">
                     <label for="m-pickup-date">Data ritiro</label>
-                    <input type="date" id="m-pickup-date" required>
+                    <div class="input-wrap">
+                        <span class="material-icons">calendar_today</span>
+                        <input type="date" id="m-pickup-date" required>
+                    </div>
                 </div>
                 <div class="field">
                     <label for="m-pickup-time">Ora ritiro</label>
-                    <input type="time" id="m-pickup-time" required>
+                    <div class="input-wrap">
+                        <span class="material-icons">schedule</span>
+                        <input type="time" id="m-pickup-time" required>
+                    </div>
                 </div>
             </div>
 
-            <div class="field-row">
+            <div class="field-row" style="gap:20px;">
                 <div class="field">
                     <label for="m-dropoff-date">Data rilascio</label>
-                    <input type="date" id="m-dropoff-date" required>
+                    <div class="input-wrap">
+                        <span class="material-icons">calendar_today</span>
+                        <input type="date" id="m-dropoff-date" required>
+                    </div>
                 </div>
                 <div class="field">
                     <label for="m-dropoff-time">Ora rilascio</label>
-                    <input type="time" id="m-dropoff-time" required>
+                    <div class="input-wrap">
+                        <span class="material-icons">schedule</span>
+                        <input type="time" id="m-dropoff-time" required>
+                    </div>
                 </div>
             </div>
 
