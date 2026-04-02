@@ -55,6 +55,10 @@
         "destination": "/local/noleggio-furgoni-scandiano.html"
       },
       {
+        "source": "/pubblicita-furgoni",
+        "destination": "/pubblicita-furgoni.html"
+      },
+      {
         "source": "/privacy-policy",
         "destination": "/privacy-policy.html"
       }
