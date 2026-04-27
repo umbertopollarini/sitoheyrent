@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description"
-        content="Noleggio furgoni a Rubiera: HeyRent! ha sede qui. Da 80€/giorno tutto incluso: assicurazione, soccorso, attrezzatura. Aperti 7 giorni su 7, domenica inclusa. Preventivo immediato su WhatsApp.">
+        content="Noleggio furgoni a Rubiera: HeyRent! ha sede qui. Da 80€/giorno tutto incluso: assicurazione, soccorso, attrezzatura. Deposito senza carta di credito. Aperti 7 giorni su 7, domenica inclusa. Preventivo immediato su WhatsApp.">
     <meta name="keywords"
-        content="noleggio furgoni Rubiera, affitto furgone Rubiera, noleggio furgone grande Rubiera, noleggio furgone trasloco Rubiera, furgone tipo Citroën Jumper Rubiera, noleggio veicoli commerciali Rubiera Reggio Emilia">
+        content="noleggio furgoni Rubiera, affitto furgone Rubiera, noleggio furgone grande Rubiera, noleggio furgone trasloco Rubiera, furgone tipo Citroën Jumper Rubiera, noleggio veicoli commerciali Rubiera Reggio Emilia, noleggio furgoni Rubiera senza carta di credito, affitto furgone Rubiera senza carta di credito, noleggio furgoni senza carta di credito Rubiera, deposito cauzionale senza carta di credito noleggio furgone Rubiera">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
@@ -94,7 +94,8 @@
         {"@type":"Question","name":"HeyRent! ha sede a Rubiera?","acceptedAnswer":{"@type":"Answer","text":"Sì, HeyRent! ha la propria sede operativa a Rubiera (RE). Il ritiro del furgone avviene direttamente in sede. Su richiesta consegniamo il furgone a domicilio con un costo aggiuntivo a partire da 10€, variabile in base ai km totali."}},
         {"@type":"Question","name":"Quanto costa noleggiare un furgone a Rubiera?","acceptedAnswer":{"@type":"Answer","text":"Il Furgone Grande (tipo Citroën Jumper) parte da 90€/giorno tutto incluso. Il Furgone Medio (tipo Fiat Talento) parte da 80€/giorno. Assicurazione completa, soccorso stradale e attrezzatura sono sempre inclusi nel prezzo."}},
         {"@type":"Question","name":"Posso ritirare il furgone direttamente a Rubiera?","acceptedAnswer":{"@type":"Answer","text":"Certamente! La nostra sede è a Rubiera, quindi puoi venire a ritirare il furgone direttamente da noi. In alternativa possiamo consegnare e riprendere il furgone al tuo indirizzo (sede aziendale, domicilio o altro): il servizio ha un costo a partire da 10€ in base ai km totali. Comunicaci l'indirizzo già in fase di preventivo."}},
-        {"@type":"Question","name":"Quanto costa la consegna del furgone a domicilio?","acceptedAnswer":{"@type":"Answer","text":"Il servizio di consegna e ritiro a domicilio parte da un minimo di 10€ e aumenta in base ai km totali dalla nostra sede di Rubiera. Indica l'indirizzo di consegna nella richiesta di preventivo per ricevere il costo esatto."}}
+        {"@type":"Question","name":"Quanto costa la consegna del furgone a domicilio?","acceptedAnswer":{"@type":"Answer","text":"Il servizio di consegna e ritiro a domicilio parte da un minimo di 10€ e aumenta in base ai km totali dalla nostra sede di Rubiera. Indica l'indirizzo di consegna nella richiesta di preventivo per ricevere il costo esatto."}},
+        {"@type":"Question","name":"Posso noleggiare un furgone a Rubiera senza carta di credito?","acceptedAnswer":{"@type":"Answer","text":"Sì, da HeyRent! puoi noleggiare un furgone a Rubiera senza carta di credito. Non accettiamo carta di credito per il deposito cauzionale: il deposito di 350€ va versato esclusivamente tramite bonifico istantaneo o contanti. Per il pagamento del noleggio invece accettiamo anche carta di credito o debito tramite POS. Avendo la sede direttamente a Rubiera, siamo il servizio di noleggio furgoni senza carta di credito più vicino a te."}}
       ]
     }
     </script>
@@ -228,6 +229,7 @@
             background: var(--blue-dark) !important;
         }
 
+
         .nav-phone {
             display: flex;
             align-items: center;
@@ -257,6 +259,128 @@
             margin: 5px 0;
             border-radius: 2px;
             transition: var(--transition);
+        }
+
+
+        .reviews-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 14px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviews-bar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .reviews-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .reviews-google-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .reviews-rating-display {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-right: 14px;
+            border-right: 1px solid var(--gray-200);
+        }
+
+        .reviews-rating-num {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--gray-800);
+            line-height: 1;
+        }
+
+        .reviews-stars {
+            display: flex;
+            gap: 1px;
+        }
+
+        .reviews-stars .material-icons {
+            font-size: 18px;
+            color: #fbbc05;
+        }
+
+        .reviews-label {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .reviews-label strong {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+
+        .reviews-label span {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .reviews-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--blue);
+            padding: 9px 18px;
+            background: var(--gray-50);
+            border: 1.5px solid var(--blue);
+            border-radius: 50px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .reviews-cta:hover {
+            background: var(--blue);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .reviews-cta .material-icons {
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .reviews-cta:hover .material-icons {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-bar { padding: 12px 0; }
+            .reviews-bar-inner {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .reviews-info {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .reviews-rating-display {
+                padding-right: 0;
+                border-right: none;
+            }
+            .reviews-label { align-items: center; }
+            .reviews-label span { display: none; }
         }
 
         .hero {
@@ -2048,6 +2172,7 @@
         </div>
     </header>
 
+
     <section class="hero" id="booking">
         <div class="container">
             <div class="hero-grid">
@@ -2254,6 +2379,40 @@
                         <p class="booking-hours">Ti ricontatteremo entro pochi minuti</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ REVIEWS BAR ═══════════ -->
+    <section class="reviews-bar" aria-label="Recensioni Google clienti">
+        <div class="container">
+            <div class="reviews-bar-inner">
+                <div class="reviews-info">
+                    <svg class="reviews-google-icon" viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+                        <path fill="#FF3D00" d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z"/>
+                        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+                        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+                    </svg>
+                    <div class="reviews-rating-display">
+                        <span class="reviews-rating-num">5.0</span>
+                        <div class="reviews-stars" aria-label="5 su 5 stelle">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </div>
+                    </div>
+                    <div class="reviews-label">
+                        <strong>Recensioni Google</strong>
+                        <span>Clienti soddisfatti, valutazione eccellente</span>
+                    </div>
+                </div>
+                <a href="https://www.google.com/search?sca_esv=af48876c36cb3322&q=heyrent+noleggio+&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXW7tugjuMg7MKkXYu2xmHelJyf-bprakO4jfDTawn47m9n2sS0l64Tu9cFLFQGsvFuns78%3D&uds=ALYpb_lYhTQoihMExfBHVPUjHWLhMb-C67sbj7stQWe5sbpcmPTZ_n6JAKNVfN95HuyZ8CJyoCr4otSEiKYSlAxhJfNV6BtQAFSfTzjPLiXsFhmdCIxZCx0&sa=X&ved=2ahUKEwjphfiP4I2UAxWM-AIHHUIpK3QQ3PALegQIKhAF&biw=1440&bih=696&dpr=2" class="reviews-cta" target="_blank" rel="noopener">
+                    Guarda le Recensioni
+                    <span class="material-icons">arrow_forward</span>
+                </a>
             </div>
         </div>
     </section>
@@ -2466,6 +2625,13 @@
                     <div class="incl-tile-text">
                         <div class="incl-tile-title">Veicolo igienizzato</div>
                         <div class="incl-tile-desc">Sanificato ad ogni noleggio</div>
+                    </div>
+                </div>
+                <div class="incl-tile fade-up">
+                    <div class="incl-tile-icon"><span class="material-icons">credit_card_off</span></div>
+                    <div class="incl-tile-text">
+                        <div class="incl-tile-title">Senza carta di credito</div>
+                        <div class="incl-tile-desc">Deposito: contanti o bonifico istantaneo</div>
                     </div>
                 </div>
             </div>
