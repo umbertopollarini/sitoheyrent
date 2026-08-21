@@ -1,80 +1,18 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "manutenzione",
     "ignore": [
-      "firebase.json",
-      "sitonuovo.html",
-      "index.html.bak",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "redirects": [
-      {
-        "source": "/index.html",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/:path*/index.html",
-        "destination": "/:path*",
-        "type": 301
-      },
-      {
-        "source": "/:path*/",
-        "destination": "/:path*",
-        "type": 301
-      }
+      "**/.*"
     ],
     "rewrites": [
       {
-        "source": "/noleggio-furgoni-modena",
-        "destination": "/local/noleggio-furgoni-modena.html"
-      },
-      {
-        "source": "/noleggio-furgoni-reggio-emilia",
-        "destination": "/local/noleggio-furgoni-reggio-emilia.html"
-      },
-      {
-        "source": "/noleggio-furgoni-rubiera",
-        "destination": "/local/noleggio-furgoni-rubiera.html"
-      },
-      {
-        "source": "/noleggio-furgoni-sassuolo",
-        "destination": "/local/noleggio-furgoni-sassuolo.html"
-      },
-      {
-        "source": "/noleggio-furgoni-carpi",
-        "destination": "/local/noleggio-furgoni-carpi.html"
-      },
-      {
-        "source": "/noleggio-furgoni-formigine",
-        "destination": "/local/noleggio-furgoni-formigine.html"
-      },
-      {
-        "source": "/noleggio-furgoni-scandiano",
-        "destination": "/local/noleggio-furgoni-scandiano.html"
-      },
-      {
-        "source": "/pubblicita-furgoni",
-        "destination": "/pubblicita-furgoni.html"
-      },
-      {
-        "source": "/privacy-policy",
-        "destination": "/privacy-policy.html"
+        "source": "**",
+        "destination": "/index.html"
       }
     ],
     "headers": [
       {
-        "source": "**/*.@(png|jpg|jpeg|webp|svg|css|js)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
-      },
-      {
-        "source": "**/*.html",
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
