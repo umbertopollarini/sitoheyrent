@@ -3122,6 +3122,8 @@
         function updateCtaPosition() { var banner = document.getElementById('cookie-banner'); var cta = document.querySelector('.mobile-cta-btn'); if (!cta) return; var bannerVisible = banner && banner.classList.contains('visible') && banner.style.display !== 'none'; cta.style.bottom = bannerVisible ? (banner.offsetHeight + 12) + 'px' : '20px'; } function cookieChoice(a) { localStorage.setItem('cookie_consent', a ? 'true' : 'false'); var b = document.getElementById('cookie-banner'); b.style.transform = 'translateY(100%)'; setTimeout(function () { b.style.display = 'none'; updateCtaPosition(); }, 400); if (a) enableAnalytics(); }
         function enableAnalytics() { if (window._gtagLoaded) return; window._gtagLoaded = true; var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17203825536'; document.head.appendChild(s); window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } window.gtag = gtag; gtag('js', new Date()); gtag('config', 'AW-17203825536'); }
     </script>
+    <!-- Prenotazioni temporaneamente sospese (rimuovere alla riapertura) -->
+    <script src="/prenotazioni-sospese.js?v=1"></script>
 </body>
 
 </html>
